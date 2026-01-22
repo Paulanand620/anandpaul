@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Anand Paul Nayak Banavath — Front-End / Web Developer & UI/UX Enthusiast. React, TypeScript, Power BI, Tableau, AWS." />
+  <title>Anand Paul Nayak Banavath | Portfolio</title>
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Anand Paul Nayak Banavath | Portfolio" />
+  <meta property="og:description" content="Front-End / Web Developer & UI/UX Enthusiast. React, TypeScript, Power BI, Tableau, AWS." />
+  <meta property="og:type" content="website" />
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#0b0f19" />
+
+  <link rel="icon" href="./assets/android-chrome-192x192.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Optional: system fonts already look great; keeping this minimal -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" id="top">
+    <div class="container topbar__inner">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true">
+          <img src="./assets/android-chrome-192x192.png" alt="" />
+        </div>
+        <div class="brand__text">
+          <div class="brand__name" id="brandName">Anand Paul Nayak</div>
+          <div class="brand__role" id="brandRole">Front-End / Web Developer • UI/UX</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#skills">Skills</a>
+        <a class="nav__link" href="#projects">Projects</a>
+        <a class="nav__link" href="#experience">Experience</a>
+        <a class="nav__link" href="#education">Education</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <button class="btn btn--ghost" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span class="icon" aria-hidden="true">◐</span>
+          <span class="btn__text">Theme</span>
+        </button>
+        <a class="btn" id="primaryCta" href="#projects">View Projects</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero hero--showcase hero--dark">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title" id="heroTitle">
+            Building fast, accessible web experiences—and data visuals that make decisions obvious.
+          </h1>
+          <p class="hero__subtitle" id="heroSubtitle"></p>
+
+          <div class="hero__cta">
+            <a class="btn" href="#contact">Contact</a>
+            <a class="btn btn--ghost" id="resumeBtn" href="#" target="_blank" rel="noreferrer">Resume</a>
+          </div>
+
+          <div class="hero__meta" id="heroMeta"></div>
+        </div>
+
+        <div class="hero__card" aria-label="Highlights">
+          <p class="pill hero__pill" id="heroPill">Open to Full-Time Roles</p>
+          <div class="hero__portrait">
+            <img src="./assets/IMG_7577.JPG" alt="Portrait of Anand Paul Nayak Banavath" />
+          </div>
+          <button class="hero__toggle" type="button" aria-expanded="false" aria-controls="heroDetails">
+            <span>Highlights</span>
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="hero__details" id="heroDetails">
+            <div class="stat-grid" id="statGrid"></div>
+            <div class="mini-timeline" id="miniTimeline"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__fade" aria-hidden="true"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head section__head--about">
+          <p id="aboutText"></p>
+        </div>
+
+        <div class="about-stack">
+          <div class="card">
+            <h3>What I do</h3>
+            <ul class="list" id="whatIDo"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS + EDUCATION -->
+    <section class="section section--skills-dark" id="skills">
+      <div class="container">
+        <div class="skills-edu">
+          <div class="skills-pane">
+            <div class="section__head">
+              <h2>Skills</h2>
+            </div>
+            <div class="skills-grid" id="skillsGrid"></div>
+          </div>
+
+          <div class="education-pane" id="education">
+            <div class="section__head">
+              <h2>Education</h2>
+            </div>
+            <div class="cards" id="educationCards"></div>
+            <div class="education-photo" aria-label="Graduation phone mockup">
+              <div class="iphone-mockup" id="iphoneMockup" role="img" aria-label="iPhone lock screen mockup">
+                <div class="iphone-island" aria-hidden="true"></div>
+                <div class="iphone-status" aria-hidden="true">
+                  <div class="iphone-status__time" id="iphoneStatusTime">12:00</div>
+                  <div class="iphone-status__icons">
+                    <span class="iphone-signal" aria-hidden="true"></span>
+                    <span class="iphone-wifi" aria-hidden="true"></span>
+                    <span class="iphone-battery" aria-hidden="true"><span></span></span>
+                  </div>
+                </div>
+                <div class="iphone-screen">
+                  <div class="iphone-lock" id="iphoneLock">
+                    <div class="iphone-wallpaper" aria-hidden="true"></div>
+                    <div class="iphone-time">
+                      <div class="iphone-date" id="iphoneDate">Monday, January 1</div>
+                      <div class="iphone-clock" id="iphoneClock">12:00</div>
+                    </div>
+                    <button class="iphone-hint" id="iphoneUnlock" type="button">Tap to Open</button>
+                  </div>
+                  <div class="iphone-photos" id="iphonePhotos" aria-label="Photos app">
+                    <div class="iphone-photos__header">
+                      <div class="photos-icon" aria-hidden="true">
+                        <span class="petal petal-1"></span>
+                        <span class="petal petal-2"></span>
+                        <span class="petal petal-3"></span>
+                        <span class="petal petal-4"></span>
+                        <span class="petal petal-5"></span>
+                        <span class="petal petal-6"></span>
+                        <span class="petal petal-7"></span>
+                        <span class="petal petal-8"></span>
+                      </div>
+                      <div>Library</div>
+                    </div>
+                    <div class="iphone-photos__grid" id="iphonePhotosSlider">
+                      <img src="./assets/Grad/0.jpg" alt="Graduation photo 1" />
+                      <img src="./assets/Grad/1.JPG" alt="Graduation photo 2" />
+                      <img src="./assets/Grad/2.jpeg" alt="Graduation photo 3" />
+                      <img src="./assets/Grad/3.jpg" alt="Graduation photo 4" />
+                      <img src="./assets/Grad/4.jpeg" alt="Graduation photo 5" />
+                      <img src="./assets/Grad/5.jpeg" alt="Graduation photo 6" />
+                      <img src="./assets/Grad/6.JPG" alt="Graduation photo 7" />
+                      <img src="./assets/Grad/7.JPG" alt="Graduation photo 8" />
+                      <img src="./assets/Grad/8.jpeg" alt="Graduation photo 9" />
+                      <img src="./assets/Grad/9.jpg" alt="Graduation photo 10" />
+                      <img src="./assets/Grad/10.jpg" alt="Graduation photo 11" />
+                      <video class="iphone-photos__video" playsinline muted>
+                        <source src="./assets/Grad/11.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="projects__head">
+          <p class="projects__label">Projects</p>
+          <h2 class="projects__title">Case studies and builds, ready to explore.</h2>
+        </div>
+        <div class="projects-grid" id="projectsGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+      <div class="section__head">
+        <h2>Experience</h2>
+      </div>
+
+        <ol class="timeline" id="experienceTimeline"></ol>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head">
+          <h2>Contact</h2>
+          <p>Frontend-only contact form (no backend). It copies a message you can paste into email/LinkedIn.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Reach me</h3>
+            <div class="contact-list" id="contactList"></div>
+            <div class="divider"></div>
+          </div>
+
+          <div class="card">
+            <h3>Message builder</h3>
+            <form id="contactForm">
+              <div class="field">
+                <label for="fromName">Your name</label>
+                <input id="fromName" name="fromName" required />
+              </div>
+              <div class="field">
+                <label for="fromEmail">Your email</label>
+                <input id="fromEmail" name="fromEmail" type="email" required />
+              </div>
+              <div class="field">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                  <option>Full-time role</option>
+                  <option>Contract / freelance</option>
+                  <option>UI/UX collaboration</option>
+                  <option>Data dashboard project</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="msg">Message</label>
+                <textarea id="msg" name="msg" rows="5" placeholder="Write what you need..." required></textarea>
+              </div>
+
+              <div class="actions">
+                <button class="btn" type="submit">Copy message</button>
+                <button class="btn btn--ghost" type="button" id="clearForm">Clear</button>
+              </div>
+
+              <p class="muted" id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section__head">
+          <h2>Certifications</h2>
+        </div>
+
+        <div class="card">
+          <div class="certs-marquee certs-marquee--brands" id="certs" data-static="true" aria-label="Certification icons">
+            <div class="certs-track">
+              <div class="certs-group" aria-hidden="false">
+                <div class="brand-chip"><i class="fab fa-aws" style="color: #FF9900;"></i></div>
+                <div class="brand-chip"><i class="fab fa-js" style="color: #F7DF1E;"></i></div>
+                <div class="brand-chip"><i class="fab fa-html5" style="color: #E34F26;"></i></div>
+                <div class="brand-chip"><i class="fas fa-database" style="color: #00758F;"></i></div>
+                <div class="brand-chip"><i class="fas fa-laptop-code" style="color: #6C63FF;"></i></div>
+              </div>
+              <div class="certs-group" aria-hidden="true">
+                <div class="brand-chip"><i class="fab fa-aws" style="color: #FF9900;"></i></div>
+                <div class="brand-chip"><i class="fab fa-js" style="color: #F7DF1E;"></i></div>
+                <div class="brand-chip"><i class="fab fa-html5" style="color: #E34F26;"></i></div>
+                <div class="brand-chip"><i class="fas fa-database" style="color: #00758F;"></i></div>
+                <div class="brand-chip"><i class="fas fa-laptop-code" style="color: #6C63FF;"></i></div>
+              </div>
+            </div>
+            <span class="brand-shadow brand-shadow--left" aria-hidden="true"></span>
+            <span class="brand-shadow brand-shadow--right" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="muted" id="footerText"></p>
+      </div>
+    </footer>
+  </main>
+
+  <button class="back-to-top" type="button" aria-label="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    <span class="sr-only">Back to top</span>
+  </button>
+
+  <!-- PROJECT MODAL -->
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="true"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal__head">
+        <h3 id="modalTitle">Project</h3>
+        <button class="btn btn--ghost" type="button" data-close="true" aria-label="Close">✕</button>
+      </div>
+      <div class="modal__body" id="modalBody"></div>
+      <div class="modal__foot" id="modalFoot"></div>
+    </div>
+  </div>
+
+  <script src="./data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

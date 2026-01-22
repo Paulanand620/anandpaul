@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anand's iPhone 17 Pro Max Mockup</title>
+  <style>
+    :root {
+      --bg: #f2f2f2;
+      --frame: #0a0a0a;
+      --bezel: #2c2c2c;
+      --glass: rgba(255, 255, 255, 0.08);
+      --shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+      --text: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at 20% 10%, #ffffff, #e9e9e9 40%, #dcdcdc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .iphone-frame {
+      width: 430px;
+      height: 932px;
+      background: var(--frame);
+      border-radius: 56px;
+      border: 8px solid var(--bezel);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .iphone-frame::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 48px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+      pointer-events: none;
+    }
+
+    .dynamic-island {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 132px;
+      height: 36px;
+      background: #000000;
+      border-radius: 20px;
+      z-index: 100;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      border-radius: 48px;
+      overflow: hidden;
+    }
+
+    #lock-screen {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      /* Replace with your graduation photo URL */
+      background-image: url("./assets/Grad.jpeg");
+      background-size: cover;
+      background-position: center;
+      color: var(--text);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+      z-index: 10;
+    }
+
+    .lock-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.7) 100%);
+    }
+
+    .time-container {
+      position: relative;
+      margin-top: 110px;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+
+    .date {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .clock {
+      font-size: 5.6rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .hint {
+      position: absolute;
+      bottom: 42px;
+      width: 100%;
+      font-size: 0.95rem;
+      opacity: 0.9;
+      letter-spacing: 0.4px;
+      z-index: 1;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+
+    #photos-app {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .photos-header {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 28px 20px 0;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #111111;
+    }
+
+    .photos-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .photos-icon .petal {
+      position: absolute;
+      width: 10px;
+      height: 18px;
+      border-radius: 999px;
+      transform-origin: center 16px;
+    }
+
+    .petal-1 { background: #ff3b30; transform: rotate(0deg) translateY(-10px); }
+    .petal-2 { background: #ff9500; transform: rotate(45deg) translateY(-10px); }
+    .petal-3 { background: #ffcc00; transform: rotate(90deg) translateY(-10px); }
+    .petal-4 { background: #34c759; transform: rotate(135deg) translateY(-10px); }
+    .petal-5 { background: #00c7be; transform: rotate(180deg) translateY(-10px); }
+    .petal-6 { background: #32ade6; transform: rotate(225deg) translateY(-10px); }
+    .petal-7 { background: #007aff; transform: rotate(270deg) translateY(-10px); }
+    .petal-8 { background: #af52de; transform: rotate(315deg) translateY(-10px); }
+
+    .photos-icon::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+      z-index: 1;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      width: 100%;
+      height: calc(100% - 100px);
+      padding: 10px 2px 2px;
+    }
+    
+    .gallery-item {
+      background: #e6e6e6;
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 480px) {
+      body { background: #111111; }
+      .iphone-frame { transform: scale(0.9); }
+    }
+  </style>
+</head>
+<body>
+  <div class="iphone-frame" role="img" aria-label="iPhone 17 Pro Max mockup">
+    <div class="dynamic-island"></div>
+    <div class="screen">
+      <div id="lock-screen" aria-label="Lock screen" onclick="unlockPhone()">
+        <div class="lock-overlay"></div>
+        <div class="time-container">
+          <div class="date" id="date-display">Monday, January 1</div>
+          <div class="clock" id="clock-display">12:00</div>
+        </div>
+        <div class="hint">Tap to Open</div>
+      </div>
+
+      <div id="photos-app" aria-label="Photos app">
+        <div class="photos-header">
+          <div class="photos-icon" aria-hidden="true">
+            <span class="petal petal-1"></span>
+            <span class="petal petal-2"></span>
+            <span class="petal petal-3"></span>
+            <span class="petal petal-4"></span>
+            <span class="petal petal-5"></span>
+            <span class="petal petal-6"></span>
+            <span class="petal petal-7"></span>
+            <span class="petal petal-8"></span>
+          </div>
+          <div>Library</div>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img src="./assets/Grad/1c30b2f2-f86b-4d23-8a1d-115c6d3aec5a.jpg" alt="Graduation photo 1" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/756c4ca1-0f0b-4022-a67f-e46d9a442bb8.jpg" alt="Graduation photo 2" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/91d4a6dc-b9f4-4362-a83a-3b006dc32144.jpg" alt="Graduation photo 3" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_1272.JPG" alt="Graduation photo 4" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_4486.jpeg" alt="Graduation photo 5" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_7516.jpeg" alt="Graduation photo 6" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_7520.jpeg" alt="Graduation photo 7" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_7530.jpeg" alt="Graduation photo 8" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_7653.jpeg" alt="Graduation photo 9" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_8088.JPG" alt="Graduation photo 10" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_8092.JPG" alt="Graduation photo 11" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_8093.JPG" alt="Graduation photo 12" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_8096.JPG" alt="Graduation photo 13" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/IMG_8097.JPG" alt="Graduation photo 14" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/aa5be0b5-a49e-43c2-949a-d9481b65dd45.jpg" alt="Graduation photo 15" /></div>
+          <div class="gallery-item"><img src="./assets/Grad/ebe9ea10-d956-4348-8e9a-3a1e8d5078bf.jpg" alt="Graduation photo 16" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const timeOptions = {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: false,
+        timeZone: "America/Chicago"
+      };
+      const dateOptions = {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        timeZone: "America/Chicago"
+      };
+
+      const timeString = new Intl.DateTimeFormat("en-US", timeOptions).format(now);
+      const dateString = new Intl.DateTimeFormat("en-US", dateOptions).format(now);
+
+      document.getElementById("clock-display").textContent = timeString;
+      document.getElementById("date-display").textContent = dateString;
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    function unlockPhone() {
+      const lockScreen = document.getElementById("lock-screen");
+      const photosApp = document.getElementById("photos-app");
+
+      lockScreen.style.transform = "translateY(-100%)";
+      lockScreen.style.opacity = "0";
+      photosApp.style.opacity = "1";
+      photosApp.style.pointerEvents = "auto";
+    }
+  </script>
+</body>
+</html>
