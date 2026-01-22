@@ -49,12 +49,24 @@
       </nav>
 
       <div class="topbar__actions">
+        <button class="btn btn--ghost nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <span class="nav-toggle__bar" aria-hidden="true"></span>
+        </button>
         <button class="btn btn--ghost" id="themeToggle" type="button" aria-label="Toggle theme">
           <span class="icon" aria-hidden="true">◐</span>
           <span class="btn__text">Theme</span>
         </button>
-        <a class="btn" id="primaryCta" href="#projects">View Projects</a>
       </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a class="mobile-nav__link" href="#about">About</a>
+      <a class="mobile-nav__link" href="#skills">Skills</a>
+      <a class="mobile-nav__link" href="#projects">Projects</a>
+      <a class="mobile-nav__link" href="#experience">Experience</a>
+      <a class="mobile-nav__link" href="#education">Education</a>
+      <a class="mobile-nav__link" href="#contact">Contact</a>
     </div>
   </header>
 
@@ -158,7 +170,7 @@
                         <span class="petal petal-7"></span>
                         <span class="petal petal-8"></span>
                       </div>
-                      <div>Library</div>
+                      <div>Graduation Ceremony</div>
                     </div>
                     <div class="iphone-photos__grid" id="iphonePhotosSlider">
                       <img src="./assets/Grad/0.jpg" alt="Graduation photo 1" />

@@ -5,16 +5,41 @@
     const $ = (sel, root = document) => root.querySelector(sel);
     const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
   
+    // Mobile nav toggle
+    const navToggle = $("#navToggle");
+    const mobileNav = $("#mobileNav");
+    if (navToggle && mobileNav) {
+      const closeNav = () => {
+        mobileNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        mobileNav.setAttribute("aria-hidden", "true");
+      };
+      navToggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        const isOpen = mobileNav.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        mobileNav.setAttribute("aria-hidden", isOpen ? "false" : "true");
+      });
+      mobileNav.addEventListener("click", (event) => {
+        if (event.target.closest("a")) closeNav();
+      });
+    }
+
     // Theme
     const themeToggle = $("#themeToggle");
-    const storedTheme = localStorage.getItem("theme");
+    let storedTheme = null;
+    try {
+      storedTheme = localStorage.getItem("theme");
+    } catch {}
     if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
-  
+
     themeToggle?.addEventListener("click", () => {
       const current = document.documentElement.getAttribute("data-theme") || "light";
       const next = current === "light" ? "dark" : "light";
       document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
+      try {
+        localStorage.setItem("theme", next);
+      } catch {}
     });
   
     // Basic bindings
