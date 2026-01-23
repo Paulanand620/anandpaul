@@ -137,6 +137,9 @@
     height: 40px;
     padding: 0;
   }
+  .nav-toggle i{
+    font-size: 16px;
+  }
   .nav-toggle__bar{
     display:block;
     width: 18px;
@@ -150,22 +153,37 @@
   .mobile-nav{
     display:none;
     padding: 0 18px 14px;
-    gap: 10px;
-    flex-wrap: wrap;
+    gap: 12px;
+    flex-direction: column;
   }
   .mobile-nav.is-open{
     display:flex;
   }
+  .mobile-nav__actions{
+    width: 100%;
+    display:flex;
+    justify-content:flex-start;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-nav__theme{
+    width: 100%;
+    justify-content:flex-start;
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
   .mobile-nav__link{
-    padding: 10px 12px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    color: var(--muted);
-    font-size: 13px;
+    padding: 14px 12px;
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
   }
   .mobile-nav__link:hover{
     color: var(--text);
+    background: var(--panel2);
   }
   
   .btn{
@@ -1603,12 +1621,14 @@
   }
   @media (max-width: 600px){
     .topbar__inner{
-      flex-direction: column;
-      align-items: stretch;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
     .brand{
       min-width: 0;
       flex: 1 1 auto;
+      margin-left: 6px;
     }
     .brand__name{
       font-size: 14px;
@@ -1617,12 +1637,62 @@
       font-size: 12px;
     }
     .topbar__actions{
+      width: auto;
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+    }
+    #themeToggle{
+      display: none;
+    }
+    .nav-toggle{
+      width: 48px;
+      height: 48px;
+      border-radius: 0;
+      background: transparent;
+      border: 1px solid var(--border);
+      box-shadow: none;
+      color: var(--text);
+      margin-right: 12px;
+    }
+    .nav-toggle__bar{
+      width: 20px;
+      height: 2px;
+      background: #ffffff;
+    }
+    .mobile-nav{
+      position: static;
+      width: 100%;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+      z-index: 60;
+    }
+    [data-theme="dark"] .mobile-nav{
+      background: #0e1624;
+      border-color: rgba(255,255,255,.12);
+    }
+    .mobile-nav__actions{
+      padding: 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav__theme{
       width: 100%;
       justify-content: flex-start;
-      flex-wrap: wrap;
+      padding: 16px 18px;
+      border-radius: 0;
+      border: 0;
+      background: transparent;
+      font-size: 16px;
     }
-    #themeToggle .btn__text{
-      display: none;
+    .mobile-nav__link{
+      padding: 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 16px;
+    }
+    .mobile-nav__link:last-child{
+      border-bottom: 0;
     }
     .topbar__actions .btn{
       padding: 8px 10px;
@@ -1683,6 +1753,18 @@
       aspect-ratio: 16 / 9;
       object-fit: contain;
       background: #000;
+    }
+    .iphone-island{
+      top: 8px;
+      width: 72px;
+      height: 20px;
+    }
+    .iphone-status{
+      top: 8px;
+      font-size: 0.66rem;
+    }
+    .iphone-photos__header{
+      padding-top: 28px;
     }
   }
   @media (max-width: 480px){

@@ -14,32 +14,51 @@
         navToggle.setAttribute("aria-expanded", "false");
         mobileNav.setAttribute("aria-hidden", "true");
       };
+      let ignoreNextScroll = false;
       navToggle.addEventListener("click", (event) => {
         event.preventDefault();
         const isOpen = mobileNav.classList.toggle("is-open");
         navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
         mobileNav.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        if (isOpen) {
+          ignoreNextScroll = true;
+          window.setTimeout(() => {
+            ignoreNextScroll = false;
+          }, 200);
+        }
       });
       mobileNav.addEventListener("click", (event) => {
         if (event.target.closest("a")) closeNav();
       });
+      window.addEventListener("scroll", () => {
+        if (ignoreNextScroll) return;
+        if (mobileNav.classList.contains("is-open")) closeNav();
+      }, { passive: true });
     }
 
     // Theme
     const themeToggle = $("#themeToggle");
+    const themeToggleMobile = $("#themeToggleMobile");
     let storedTheme = null;
     try {
       storedTheme = localStorage.getItem("theme");
     } catch {}
     if (storedTheme) document.documentElement.setAttribute("data-theme", storedTheme);
 
-    themeToggle?.addEventListener("click", () => {
+    const handleThemeToggle = () => {
       const current = document.documentElement.getAttribute("data-theme") || "light";
       const next = current === "light" ? "dark" : "light";
       document.documentElement.setAttribute("data-theme", next);
       try {
         localStorage.setItem("theme", next);
       } catch {}
+    };
+    [themeToggle, themeToggleMobile].forEach((btn) => {
+      if (!btn) return;
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        handleThemeToggle();
+      });
     });
   
     // Basic bindings

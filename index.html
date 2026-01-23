@@ -50,9 +50,7 @@
 
       <div class="topbar__actions">
         <button class="btn btn--ghost nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
+          <i class="fas fa-chevron-down" aria-hidden="true"></i>
         </button>
         <button class="btn btn--ghost" id="themeToggle" type="button" aria-label="Toggle theme">
           <span class="icon" aria-hidden="true">◐</span>
@@ -61,6 +59,12 @@
       </div>
     </div>
     <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <div class="mobile-nav__actions">
+        <button class="btn btn--ghost mobile-nav__theme" id="themeToggleMobile" type="button" aria-label="Toggle theme">
+          <span class="icon" aria-hidden="true">◐</span>
+          <span class="btn__text">Theme</span>
+        </button>
+      </div>
       <a class="mobile-nav__link" href="#about">About</a>
       <a class="mobile-nav__link" href="#skills">Skills</a>
       <a class="mobile-nav__link" href="#projects">Projects</a>
@@ -224,7 +228,6 @@
       <div class="container">
         <div class="section__head">
           <h2>Contact</h2>
-          <p>Frontend-only contact form (no backend). It copies a message you can paste into email/LinkedIn.</p>
         </div>
 
         <div class="grid-2">
