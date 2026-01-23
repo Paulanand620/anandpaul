@@ -106,9 +106,14 @@
       updateIphoneTime();
       setInterval(updateIphoneTime, 1000);
 
-      iphoneUnlock.addEventListener("click", () => {
-        iphoneMockup.classList.add("is-unlocked");
-      });
+      const unlockPhotos = () => {
+        if (!iphoneMockup.classList.contains("is-unlocked")) {
+          iphoneMockup.classList.add("is-unlocked");
+        }
+      };
+
+      iphoneUnlock.addEventListener("click", unlockPhotos);
+      iphoneMockup.addEventListener("click", unlockPhotos);
     }
 
     if (iphonePhotosSlider) {
