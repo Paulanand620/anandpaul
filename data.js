@@ -11,7 +11,7 @@ window.PORTFOLIO = {
       facebook: "https://www.facebook.com/profile.php?id=100021958144854",
       portfolio: "https://anand-paul.vercel.app/",
       // Replace this with an actual hosted PDF URL when you have it:
-      resumeUrl: "./assets/Anand_Paul_Nayak_Banavath_Resume.pdf"
+      resumeUrl: "./assets/APNB_F_Resume_page-0001.jpg"
     },
   
     about: {
@@ -72,6 +72,7 @@ window.PORTFOLIO = {
         subtitle: "Responsive UI build with Chart.js health metrics.",
         description:
           "Converted an Adobe XD design into a fully responsive HTML, CSS, and JavaScript interface with pixel-accurate implementation and dynamic UI behaviors, including Chart.js visualizations for patient health metrics.",
+        image: "./assets/H_D.png",
         tags: ["HTML", "CSS", "JavaScript", "Chart.js", "Responsive"],
         highlights: [
           "Built pixel-accurate UI from Adobe XD with responsive layouts.",
@@ -83,10 +84,11 @@ window.PORTFOLIO = {
       },
       {
         id: "ensureguard",
-        title: "EnsureGuard — Fraud Detection in Car Insurance Claims",
+        title: "InsureGuard — Fraud Detection in Car Insurance Claims",
         subtitle: "Power BI dashboards + geospatial risk visuals for investigative insights.",
         description:
           "Designed Power BI dashboards to visualize claim trends and highlight suspicious clusters. Integrated multiple datasets to automate reporting and deliver actionable insights for examiners.",
+        image: "./assets/I_C.png",
         tags: ["Power BI", "DAX", "Analytics", "Geospatial"],
         highlights: [
           "Built dashboards that surface fraud signals (trends, clusters, anomalies).",
@@ -101,6 +103,7 @@ window.PORTFOLIO = {
         subtitle: "Mobile-first UX with full booking journey in Figma.",
         description:
           "Designed a mobile-first car rental experience in Figma, covering the complete journey from onboarding to booking confirmation with a reusable design system and polished UI screens.",
+        image: "./assets/R_N_M.png",
         tags: ["UI/UX", "Figma", "Design System", "Mobile"],
         highlights: [
           "Mapped end-to-end user flows and wireframes to high-fidelity screens.",
@@ -116,6 +119,7 @@ window.PORTFOLIO = {
         subtitle: "Python cleaning + Tableau dashboards to understand usage behaviors.",
         description:
           "Cleaned and analyzed user engagement datasets with Python, then built interactive Tableau dashboards to track time allocation, engagement patterns, and trends by demographics.",
+        image: "./assets/T_W_S.png",
         tags: ["Python", "Tableau", "Data Cleaning", "Visualization"],
         highlights: [
           "Produced interactive dashboards to explore engagement behaviors.",
@@ -129,6 +133,7 @@ window.PORTFOLIO = {
         subtitle: "React-based learning UI with real-time API integrations (front-end focus).",
         description:
           "Developed a scalable e-learning experience using React and real-time APIs, optimized for accessibility and cross-device usability. Coordinated milestones and documentation for enhancements.",
+        image: "./assets/E_L_P.png",
         tags: ["React", "Accessibility", "APIs", "UI/UX"],
         highlights: [
           "Focused on navigation clarity for students/teachers/admins.",
@@ -142,6 +147,7 @@ window.PORTFOLIO = {
         subtitle: "End-to-end prototype: lighting, security, climate controls with training & rollout.",
         description:
           "Led development of a smart home automation prototype integrating multiple device categories. Managed phases from architecture to deployment and user training; tracked inventory and usage reporting.",
+        image: "./assets/I_O_T.png",
         tags: ["IoT", "System Design", "Prototyping"],
         highlights: [
           "Coordinated architecture + device integration + rollout.",

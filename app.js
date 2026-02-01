@@ -395,38 +395,37 @@
     const projectsGrid = $("#projectsGrid");
     const buildAction = (label, href, primary) => {
       const hasLink = Boolean(href);
-      const className = `project-card__btn${primary ? " project-card__btn--primary" : ""}${hasLink ? "" : " is-disabled"}`;
+      const className = `platform-btn${primary ? " platform-btn--primary" : ""}${hasLink ? "" : " is-disabled"}`;
       const safeHref = hasLink ? href : "#";
       const ariaDisabled = hasLink ? "" : ` aria-disabled="true" tabindex="-1"`;
       return `<a class="${className}" href="${escapeAttr(safeHref)}" target="_blank" rel="noreferrer"${ariaDisabled}>${label}</a>`;
     };
 
     function renderProjects() {
-      projectsGrid.innerHTML = DATA.projects.map((p) => {
+      const featuredIndex = Math.max(0, Math.min(DATA.projects.length - 1, Math.floor(DATA.projects.length / 2)));
+      projectsGrid.innerHTML = DATA.projects.map((p, index) => {
         const tag = p.tags?.[0] || "Project";
-        const stack = (p.tags || []).map(t => `<span class="project-card__chip">${escapeHtml(t)}</span>`).join("");
+        const isFeatured = index === featuredIndex;
+        const hue = (index * 38) % 360;
         const caseStudy = buildAction("View Case Study", p.links?.github, true);
         const demo = buildAction("Live Demo", p.links?.demo, false);
+        const details = `<button class="platform-btn" type="button" data-open="${escapeAttr(p.id)}">View Details</button>`;
+        const media = p.image
+          ? `<img src="${escapeAttr(p.image)}" alt="${escapeAttr(p.title)} cover" />`
+          : "";
         return `
-          <article class="project-card reveal" data-project-card="${escapeAttr(p.id)}">
-            <button class="project-card__header" type="button" aria-expanded="false">
-              <div>
-                <div class="project-card__tag">${escapeHtml(tag)}</div>
-                <h3 class="project-card__title">${escapeHtml(p.title)}</h3>
-                <div class="project-card__subtitle muted">${escapeHtml(p.subtitle)}</div>
-              </div>
-              <span class="project-card__chevron" aria-hidden="true">
-                <i class="fas fa-chevron-down"></i>
-              </span>
-            </button>
-            <div class="project-card__content">
-              <div class="project-card__body">
-                <p>${escapeHtml(p.description)}</p>
-                <div class="project-card__stack">${stack}</div>
-                <div class="project-card__actions">
-                  ${caseStudy}
-                  ${demo}
-                </div>
+          <article class="project-card platform-card${isFeatured ? " platform-card--featured" : ""} reveal" data-project-card="${escapeAttr(p.id)}" style="--card-hue:${hue};">
+            <div class="platform-card__media">
+              ${media}
+            </div>
+            <div class="platform-card__body">
+              <div class="platform-card__tag">${escapeHtml(tag)}</div>
+              <h3 class="platform-card__title">${escapeHtml(p.title)}</h3>
+              <p class="platform-card__desc">${escapeHtml(p.subtitle)}</p>
+              <div class="platform-card__footer">
+                ${caseStudy}
+                ${details}
+                ${demo}
               </div>
             </div>
           </article>
@@ -439,22 +438,40 @@
   
     renderProjects();
 
-    // Accordion behavior (single open at a time)
-    const projectCards = () => Array.from(projectsGrid.querySelectorAll(".project-card"));
-    projectsGrid.addEventListener("click", (event) => {
-      const header = event.target.closest(".project-card__header");
-      if (!header) return;
-      const card = header.closest(".project-card");
-      const wasOpen = card.classList.contains("is-open");
-      projectCards().forEach((el) => {
-        el.classList.remove("is-open");
-        const btn = el.querySelector(".project-card__header");
-        if (btn) btn.setAttribute("aria-expanded", "false");
-      });
-      if (!wasOpen) {
-        card.classList.add("is-open");
-        header.setAttribute("aria-expanded", "true");
+    // Modal-style hover for project cards
+    const projectsSection = $("#projects");
+    const setPopCard = (card) => {
+      const cards = Array.from(projectsGrid.querySelectorAll(".platform-card"));
+      cards.forEach((el) => el.classList.remove("is-pop"));
+      if (card) {
+        card.classList.add("is-pop");
+        projectsSection.classList.add("is-pop");
+      } else {
+        projectsSection.classList.remove("is-pop");
       }
+    };
+    const bindPopHandlers = () => {
+      const cards = Array.from(projectsGrid.querySelectorAll(".platform-card"));
+      cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => setPopCard(card));
+        card.addEventListener("focusin", () => setPopCard(card));
+      });
+    };
+    bindPopHandlers();
+    projectsSection.addEventListener("mouseleave", () => {
+      setPopCard(null);
+    });
+    projectsSection.addEventListener("click", (event) => {
+      const insideCard = event.target.closest(".platform-card");
+      if (!insideCard) setPopCard(null);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setPopCard(null);
+    });
+    projectsSection.addEventListener("focusout", (event) => {
+      const next = event.relatedTarget;
+      if (next && projectsSection.contains(next)) return;
+      setPopCard(null);
     });
   
     // Modal
